@@ -20,4 +20,20 @@ router.get('/department', (req, res) => {
     })
 })
 
+router.post('/department', (req, res) => {
+    const sql = 'INSERT INTO department (name) VALUES (?)';
+    const params = req.body.name;
+
+    db.query(sql, params, (err, result) => {
+        if (err) {
+            res.status(400).json({ error: err.message })
+        }
+        res.json({
+            message: 'success',
+            data: req.body
+        });
+    });
+});
+
+
 module.exports = router;
