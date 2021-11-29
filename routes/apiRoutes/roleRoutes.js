@@ -4,7 +4,7 @@ const db = require('../../db/connection');
 const cTable = require('console.table');
 
 router.get('/role', (req, res) => {
-    const sql = 'SELECT role.id, title, salary, department_id, department.name AS department FROM role LEFT JOIN department ON role.department_id = department.id ORDER BY department_id';
+    const sql = 'SELECT role.id, title, salary, department_id, department.name AS department FROM role LEFT JOIN department ON role.department_id = department.id ORDER BY role.id ASC';
 
     db.query(sql, (err, rows) => {
         if (err) {

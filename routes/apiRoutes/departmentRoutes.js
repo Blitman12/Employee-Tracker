@@ -5,7 +5,7 @@ const cTable = require('console.table');
 
 // Get all departments
 router.get('/department', (req, res) => {
-    const sql = 'SELECT id, name AS department_name FROM department'
+    const sql = 'SELECT id, name AS department_name FROM department ORDER BY id ASC'
 
     db.query(sql, (err, rows) => {
         if (err) {
