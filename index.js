@@ -1,7 +1,7 @@
 const inquirer = require('inquirer')
 const cTable = require('console.table');
 const fetch = require('cross-fetch')
-const {updateRole, addRole, addEmployee, addDepartment, getAll} = require('./lib/fetchRoutes');
+const {updateRole, addEmployee, addDepartment, getAll, askQuestions} = require('./lib/fetchRoutes');
 
 
 // Inquirer functionality
@@ -32,7 +32,7 @@ const promptQuestions = () => {
                 await addEmployee();
                 break;
             case 'Add a role':
-                await addRole();
+                await askQuestions();
                 break;
             case 'Update an employees roles':
                 await updateRole();
